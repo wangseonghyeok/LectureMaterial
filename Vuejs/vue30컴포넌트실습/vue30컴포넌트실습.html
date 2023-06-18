@@ -192,7 +192,7 @@
 
     step 2-11. 비동기 통신 axios 라이브러리 추가.
         package.json 에 관련 정보가 추가 된다.
-        $ npm install --save axios
+        $ npm install --save axios(굳이설치x)
 
     step 2-12.  프로젝트 실행 설정 comprj01/package.json 수정
         a. 실행시 브라우저로 열기  ==>  --open
@@ -245,9 +245,11 @@
         |   |   `-- HelloWorld.vue
         |   |-- router               # 라우터
         |   |   `-- index.js
+        |   |-- store               # vuex
+        |   |   `-- index.js
         |   |-- views                # 라우터 페이지
-        |   |   |-- About.vue
-        |   |   `-- Home.vue
+        |   |   |-- AboutView.vue
+        |   |   `-- HomeView.vue
         |   |-- App.vue
         |   `-- main.js
         |-- .browserslistrc
