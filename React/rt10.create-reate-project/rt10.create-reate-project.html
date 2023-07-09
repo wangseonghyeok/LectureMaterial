@@ -554,7 +554,7 @@
                   },
                 ],
                 'react/jsx-one-expression-per-line': 0,
-                'no-debugger': 1,
+                'no-debugger': /* 1 = warn*/,
                 'no-unused-vars': 1,
                 'react/prop-types': 1,
                 'react/no-unused-prop-types': 1,
@@ -596,7 +596,7 @@
           },
           "lint-staged": {
               "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-                  "prettier --write",
+                  "prettier --write" ,
                   "git add"
               ]
           }
