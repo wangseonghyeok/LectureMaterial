@@ -2,7 +2,7 @@
 
 <template>
   <header>
-    <h1>TODO it! component</h1>
+    <h1>TODO it! Component</h1>
   </header>
 </template>
 

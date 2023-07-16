@@ -1,7 +1,7 @@
-#  Vue.js 와 React.js 를 활용한 프론트엔드 웹개발 과정
-- 훈련기관 : 티아이에스정보기술교육센터학원
+#  Vue 와 React 를 활용한 프론트엔드 웹개발 과정
+- 훈련기관 : 티아이에스 정보 기술 교육 센터 학원
 - 훈련기간 : 2023-06-04 ~ 2023-07-16 (3회차)
-- 수업자료 다운로드: <a target="_blank" href="https://drive.google.com/file/d/1xGkjCzlq7qsto_Kf70VBYG1mVEaC6DGA/view?usp=drive_link">drive.google.com</a>
+- 수업자료 다운로드: <a target="_blank" href="https://1drv.ms/u/s!AvuDg6Kk74OTik3DP_6mVtUgXfEN?e=ylydKI">다운로드</a>
 
 # 프리페어레이션
 
@@ -68,6 +68,14 @@ Windows에서 Bash Shell을 사용하려면 Git Bash 에뮬레이터를 사용�
 Windows 10 이상 사용자인 경우, <a target="_blank" href="https://docs.microsoft.com/ko-kr/windows/wsl/about">WSL</a>을 설치해 Ubuntu를 사용하는 방법으로 대체할 수 있습니다.
 
 
-## 설문 조사
+
+### 수업 영상 자료
+
+- [es2015 수업 영상](https://youtu.be/5zBmgLhiIRM)
+- [vue의 MVVM 원리](https://www.youtube.com/watch?v=WPqj8LMYz8g)
+
+
+
+### 설문 조사
 
 설문에 응답해주세요.

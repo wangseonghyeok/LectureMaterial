@@ -8,11 +8,11 @@
 </template>
 
 <script>
-// vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
-// import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
 import Vue4301Comp from '../components/vue4301/Vue4301Comp.vue';
+
 export default {
   components: {
+    /* 지역 컴포넌트나 파일 컴포넌트만 등록 한다. 예시) "태그명" : 컴포넌트명 */
     Vue4301Comp: Vue4301Comp,
   },
 };

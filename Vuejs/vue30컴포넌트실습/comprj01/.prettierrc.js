@@ -7,8 +7,8 @@ module.exports = {
   useTabs: false /* 탭 대신 spacebar 를 사용 설정 */,
   trailingComma: 'all',
   proseWrap: 'always',
-  bracketSpacing: true,
-  jsxSingleQuote: false /*JSX 안에서는 " 을 사용 */,
+  bracketSpacing: true /* [1,2,3] ==> [ 1,2,3 ] */,
+  jsxSingleQuote: false /* JSX 안에서는 " 을 사용 */,
   quoteProps: 'as-needed',
   endOfLine: 'crlf',
 };

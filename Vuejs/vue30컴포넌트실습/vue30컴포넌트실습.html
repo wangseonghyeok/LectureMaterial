@@ -192,7 +192,7 @@
 
     step 2-11. 비동기 통신 axios 라이브러리 추가.
         package.json 에 관련 정보가 추가 된다.
-        $ npm install --save axios(굳이설치x)
+        $ npm install --save axios
 
     step 2-12.  프로젝트 실행 설정 comprj01/package.json 수정
         a. 실행시 브라우저로 열기  ==>  --open
@@ -245,7 +245,9 @@
         |   |   `-- HelloWorld.vue
         |   |-- router               # 라우터
         |   |   `-- index.js
-        |   |-- store               # vuex
+        |   |-- store                # vuex
+        |   |   `-- index.js
+        |   |-- router               # 라우터
         |   |   `-- index.js
         |   |-- views                # 라우터 페이지
         |   |   |-- AboutView.vue
@@ -299,10 +301,10 @@
               node: true,
 
               browser: true,
-              commonjs: true,
-              es6: true,
-              es2021: true,
-              jest: true,
+              commonjs: true /* require() 메서드를 이용한 import 허용 설정 */,
+              es6: true /* es2015 검사시 사용 설정 */,
+              es2021: true /* es2021 검사시 사용 설정 */,
+              jest: true /* jest 검사시 사용 설정 */,
             },
             extends: [
                 'plugin:vue/essential',
@@ -317,19 +319,18 @@
             rules: {
               'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
               'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-              'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-              'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-              'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-              'prettier/prettier': ['error', { endOfLine: 'auto' }] /*줄 바꿈 설정 */,
+
+              'prettier/prettier': ['error', { endOfLine: 'auto' }] /* 줄 바꿈 설정 */,
               'linebreak-style': 'off',
               'arrow-parens': ['error', 'always'] /* (a) => {} */,
               'arrow-body-style': 'off' /* 화살표 함수 관련 설정 */,
               'consistent-return': 'off' /* 화살표 함수 자동 리턴 처리 */,
-              'func-names': 'off' /* 변수 선언시 var 사용하면 오류 발생 */,
+              'func-names': 'off', /* 변수 선언시 var 사용하면 오류 발생 */
               'no-shadow': 'off',
               'no-alert': 'off' /* alert() 메서드 사용시 오류 발생 */,
               'no-var': 'error' /* 변수 선언시 var 사용하면 오류 발생 */,
-              'no-unused-vars': 'off' /* 변수 선언 후 미 사용시 오류 처리*/,
+              'no-unused-vars': 'off' /* 변수 선언 후 미 사용시 오류 처리 */,
+              'no-param-reassign': ['error', { props: false }] /* 함수 매개변수를 변경할 때 오류 처리 */,
             },
             overrides: [
               {
@@ -347,7 +348,7 @@
         https://prettier.io/docs/en/options.html
 
         .prettierrc.js 파일을 프로젝트 루트에 만들고 아래 내용을 추가한다.
-        $ls -a
+        $ ls -a
 
         $ touch .prettierrc.js
 
@@ -361,8 +362,8 @@
           useTabs: false /* 탭 대신 spacebar 를 사용 설정 */,
           trailingComma: 'all',
           proseWrap: 'always',
-          bracketSpacing: true, /* [1,2,3] ==> [ 1,2,3 ] */
-          jsxSingleQuote: false /*JSX 안에서는 " 을 사용 */,
+          bracketSpacing: true /* [1,2,3] ==> [ 1,2,3 ] */,
+          jsxSingleQuote: false /* JSX 안에서는 " 을 사용 */,
           quoteProps: 'as-needed',
           endOfLine: 'crlf',
         };
@@ -377,13 +378,13 @@
 
 
     step 4-04. 프로젝트 전체 소스에 새로운 lint 설정 적용하기
-    $ ls
+        $ ls
 
-    $ npm run lint
+        $ npm run lint
 
 
     step 4-05. 서버 재시작
-    $ npm run serve
+        $ npm run serve
 
 
     ##################################
@@ -550,8 +551,8 @@
     ##################################
     # 작업 폴더 및 파일 만들기
         $ mkdir -p src/components/vue3104
-        $ touch src/views/Vue3104View.vue  #컨테이너 컴포넌트
-        $ touch src/components/vue3104/Vue3104Counter.vue // 프리젠테이션 컴포넌트
+        $ touch src/views/Vue3104View.vue                 # 컨테이너 컴포넌트
+        $ touch src/components/vue3104/Vue3104Counter.vue # 프리젠테이션 컴포넌트
 
     페이지 링크 만들기  ==> src/App.vue 수정
 
@@ -701,7 +702,7 @@
         </template>
 
     src/components/vue3103/Vue3403Comp.vue 생성(자식 컴포넌트)
-        <template>2
+        <template>
         <div>
             <button v-on:click="showLog">show</button>
         </div>
@@ -729,11 +730,11 @@
         Child 컴포넌트에서  - 버튼을 클릭하면 subCounter 이벤트 발생
 
     작업 순서
-        1. Parent 컴포넌트 부분만 작동되게 만든다.
+        1. Parent 컴포넌트 부분만 동자되게 만든다.
         2. 1번이 되면 Parent 컴포넌트가 정상 작동되면
             Child 컴포넌트가 화면에 표시되도록 작성한다.
         3. 2번이 되면 Child 컴포넌트에 props를 통해 값을 내려받게 작성 한다.
-            <component-child v-bind:num="counter" />
+            <ComponentChild v-bind:num="counter" />
             의미: 부모의 counter 변수를 자식에서는 num 변수로 받는다.
         4. 사용자 이벤트를 사용하여 Child 컴포넌트에서
             Parent 컴포넌트로 값을 전달되게 한다.
@@ -742,7 +743,7 @@
     # 작업 폴더 및 파일 만들기
         $ ls    # package.json 파일이 있는지 확인
         $ mkdir -p src/components/vue34ex     # 폴더 생성
-        $ touch src/views/Vue34exView.vue     # 컨테이너 콤포넌트 만들기
+        $ touch src/views/Vue34exView.vue                 # 컨테이너 콤포넌트 만들기
         $ touch src/components/vue34ex/Vue34exParent.vue  # 프리젠테이션 컴포넌트만들기
         $ touch src/components/vue34ex/Vue34exChild.vue   # 프리젠테이션 컴포넌트만들기
 
@@ -780,7 +781,7 @@
 
             <!-- Child 컴포넌트를 등록하고 counter 데이터 속성을 props로 전달한다. -->
             <component-child
-                v-bind:num      ="counter"
+                v-bind:num     ="counter"
                 v-on:addCounter="addCounter"
                 v-on:subCounter="subCounter">
             </component-child>
@@ -788,7 +789,7 @@
     </template>
 
 
-    src/components/v    ue3104/Vue34exChild.vue 생성(자식 컴포넌트)
+    src/components/vue3104/Vue34exChild.vue 생성(자식 컴포넌트)
     <template>
         <div class="component-child">
             Child counter : {{ num }} <br>
@@ -813,8 +814,8 @@
 
     # 작업 폴더 및 파일 만들기
         $ mkdir -p src/components/vue3501
-        $ touch src/views/Vue3501View.vue
-        $ touch src/components/vue3501/Vue3501Comp.vue
+        $ touch src/views/Vue3501View.vue              # 컨테이너 콤포넌트 만들기
+        $ touch src/components/vue3501/Vue3501Comp.vue # 프리젠테이션 컴포넌트만들기
 
     페이지 링크 만들기  ==> src/App.vue 수정
 

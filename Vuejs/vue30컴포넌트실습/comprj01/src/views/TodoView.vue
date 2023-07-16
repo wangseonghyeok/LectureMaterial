@@ -1,21 +1,25 @@
 <style scoped></style>
+
 <template>
   <div id="app">
     <!-- TodoHeader -->
     <TodoHeader></TodoHeader>
+
     <!-- TodoInput -->
     <TodoInput v-on:addTodo="addTodo"></TodoInput>
+
     <!-- TodoList -->
     <TodoList
       v-bind:todoItems="todoItems"
       v-on:doneToggle="doneToggle"
       v-on:removeTodo="removeTodo"
     ></TodoList>
-    <!-- "checked(todoItem.done)"  <==> "todoItem.done ? 'checked': null "  -->
-    <TodoFooter v-on:clearAll="clearAll"></TodoFooter>
+
     <!-- TodoFooter -->
+    <TodoFooter v-on:clearAll="clearAll"></TodoFooter>
   </div>
 </template>
+
 <script>
 // vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
 // import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
@@ -23,6 +27,7 @@ import TodoHeader from '../components/todo/TodoHeader.vue';
 import TodoFooter from '../components/todo/TodoFooter.vue';
 import TodoInput from '../components/todo/TodoInput.vue';
 import TodoList from '../components/todo/TodoList.vue';
+
 export default {
   /* pdtmc^2w */
   props: [],
@@ -39,12 +44,12 @@ export default {
   },
   //template: ``,
   methods: {
+    /* 이벤트 핸들러 등록 + 일반 함수 */
     clearAll(e) {
+      debugger;
       console.log(e.target);
       this.$data.todoItems = [];
-      debugger;
     },
-
     doneToggle(e, id) {
       debugger;
       console.log(id);
@@ -60,8 +65,10 @@ export default {
     removeTodo(id) {
       debugger;
       console.log(id);
-      // window.event.stopPropagation();
-      // window.event.preventDefault();
+
+      // 복제 후 할당 처리 방식.
+      // 1. 새로운 배열 만들기. filter 사용
+      // 2. this.$data.todoItems 에 새로운 배열 할당하기
       const newarr = this.$data.todoItems.filter((value) => {
         if (value.id === id) return false;
         return true;
@@ -72,14 +79,14 @@ export default {
       debugger;
       console.log(e.target);
 
-      // input 태그에 빈 문자열이 입력 되는 경우는 배열에 추가되지 않고
-      //    방법1.todoItems.map()과 todoItems.reduce()를 사용하여 max id를 찾는 방법
+      // todoItems.map()과 todoItems.reduce()를 사용하여 max id를 찾는 방법
       const ids = this.$data.todoItems.map((value) => {
-        // value === {id,done,todo}
+        // value === { id, done, todo}
         return value.id;
       });
+
       console.log(ids); // [1,2,3,4]
-      // ids 배열에서 최대값 찾기 => max(),reduce()
+      // ids 배열에서 최대값 찾기 ==> max(), reduce()
       const maxid = ids.reduce((pvalue, cvalue) => {
         debugger;
         if (pvalue > cvalue) return pvalue;
@@ -93,11 +100,10 @@ export default {
         done: false,
       };
 
-      // 배열에 추가 =>push() 메서드 또는 spread() 연산자
+      // 배열에 추가 ==> push() 메서드 또는 spread 연산자
       // this.$data.todoItems.push(newobj);
       this.$data.todoItems = [...this.$data.todoItems, newobj];
     },
-    /* 이벤트 핸들러 등록 + 일반 함수 */
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드입니다.
       namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.
@@ -109,7 +115,6 @@ export default {
       */
   },
   components: {
-    /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
     /* 지역 컴포넌트나 파일 컴포넌트만 등록 한다. 예시) "태그명" : 컴포넌트명 */
     TodoHeader: TodoHeader,
     TodoFooter: TodoFooter,

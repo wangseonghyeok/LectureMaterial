@@ -9,7 +9,7 @@
     <router-link to="/vue3501">vue3501</router-link> |
     <router-link to="/vue3701">vue3701</router-link> |
     <router-link to="/vue4301">vue4301</router-link> |
-    <router-link to="/todo">todo</router-link> |
+    <router-link to="/todo">todo</router-link>
   </nav>
   <router-view />
 </template>

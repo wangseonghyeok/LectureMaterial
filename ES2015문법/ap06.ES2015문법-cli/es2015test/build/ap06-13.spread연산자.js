@@ -1,18 +1,18 @@
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _console, _console2;
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var _console;
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 /*
 
   스프레드 사용법을 학습한다.
@@ -37,27 +37,34 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var cities = ['서울', '부산', '제주'];
 console.log(cities[0], cities[1], cities[2]); // '서울', '부산', '제주'
-(_console = console).log.apply(_console, cities);
-var newcities = [].concat(cities);
-(_console2 = console).log.apply(_console2, _toConsumableArray(newcities)); // '서울', '부산', '제주'
+(_console = console).log.apply(_console, cities); // '서울', '부산', '제주'
 
 var east = ['U', 'K', 'T'];
 var west = ['N', 'C', 'G'];
 
-// east 와 west 를 결합하여 countries1 배열을 만드시오
-var countries1 = east.concat(west); // ['U','K','T','N', 'C', 'G']
-console.log(east); // ['U','K','T']
-console.log(countries1); // ['U','K','T','N', 'C', 'G']
+// east 와 west 를 결합하여  countries 배열을 만드시오
+var countries = east.concat(west); // "U", "K", "T", "N", "C", "G"
+console.log(countries); // ['U', 'K', 'T', 'N', 'C', 'G']
 
-var countries2 = [].concat(east, west); // ['U','K','T','N', 'C', 'G']
-console.log(countries2); // ['U','K','T','N', 'C', 'G']
+// east 와 west 를 결합하여  countries1 배열을 만드시오.
+// spread 연산자 사용하여
+// spread 연산자 는 새로운 배열이나 객체를 만들 때 주로 사용된다
+var countries1 = [].concat(east, west); // ['U', 'K', 'T', 'N', 'C', 'G']
+console.log(countries1); // ['U', 'K', 'T', 'N', 'C', 'G']
+console.log(east); // ['U', 'K', 'T']
+console.log(west); // ['N', 'C', 'G']
 
-var lakes = ['경포호', '화진포', '송지호', '청조호'];
+var lakes = ['경포호', '화진포', '송지호', '청초호'];
 var first = lakes[0],
-  rest = lakes.slice(1); //"경포호"
-
+  rest = lakes.slice(1); // ...rest : rest 연산자
 console.log(first); // "경포호"
-console.log(rest); // [ '화진포', '송지호', '청조호']
+console.log(rest); // ["화진포", "송지호", "청초호"]
+
+var _ref = [].concat(east, west),
+  city1 = _ref[0],
+  cityrest = _ref.slice(1);
+// ...cityrest: rest 연산자  , [...east, ...west] : spread 연산자
+console.log(cityrest); // ["K", "T", "N", "C", "G"]
 
 var car1 = {
   type: 't1',
@@ -72,30 +79,30 @@ var car2 = {
 var type = car1.type; // t1
 console.log(type); // t1
 // { type } = { ...car1, ...car2 }
-var func = function func(_ref) {
-  var type = _ref.type;
+var func = function func(_ref2) {
+  var type = _ref2.type;
   console.log(type); // t2
 };
 
 func(_objectSpread(_objectSpread({}, car1), car2));
 var moring = {
   breacfast: '미역국',
-  lunch: '삼치구이'
+  lunuch: '삼치구이'
 };
 var dinner = '스테이크';
 var meals = _objectSpread(_objectSpread({}, moring), {}, {
-  dinner: dinner
+  dinner: dinner /*  dinner: dinner */
 });
-console.log(meals);
+console.log(meals); // meals 에 출력되는 값은 무엇인가?
 
-// props 에 출력되는 값은 무엇인가
-function childComponest() {
+// props 에 출력되는 값은 무엇인가?
+function childComponent() {
   for (var _len = arguments.length, props = new Array(_len), _key = 0; _key < _len; _key++) {
     props[_key] = arguments[_key];
   }
-  console.log(props);
+  // callee
+  console.log(props); // props 에 출력되는 값은 무엇인가?
+  debugger;
 }
-// ...props = ...message
-var message = 'passed form Parent Component';
-childComponest.apply(void 0, _toConsumableArray(message));
-debugger;
+var message = 'passed from Parent Component';
+childComponent.apply(void 0, _toConsumableArray(message)); // caller

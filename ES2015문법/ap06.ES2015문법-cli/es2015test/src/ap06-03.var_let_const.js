@@ -26,8 +26,6 @@
     변수 이름 충돌 불가
 */
 
-console.log(aa);
-
 let msg = 'global scope';
 
 if (true) {
@@ -35,11 +33,12 @@ if (true) {
 }
 
 function outer(params) {
-  let msg = 'function scope';
+  let msg = 'function scope at outer ';
 
   if (true) {
-    let msg = 'block scope';
+    let msg = 'block scope at outer ';
   }
 }
 
-let aa = 'hosting';
+const pizza = true;
+pizza = false; // 에러 발생.

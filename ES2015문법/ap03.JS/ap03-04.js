@@ -1,12 +1,10 @@
-function func(params) {
+function name(params) {
   console.log('name function');
 }
-function func2(params) {
-  console.log('name function');
-}
+name();
+
 const name2 = function (params) {
   console.log('name2 function');
-  return func2;
 };
 const obj = {
   a: 1,
@@ -14,6 +12,7 @@ const obj = {
 };
 
 obj.name2();
+
 
 const b = new Number(10);
 console.log(b);

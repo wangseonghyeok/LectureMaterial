@@ -31,11 +31,11 @@
     </xmp>
     <hr>
 
-    <div id="app1">
+    <div>
       {{ message }}, app1
     </div>
 
-    <div id="app2">
+    <div id="app">
       {{ message }}, app2
     </div>
 
@@ -48,13 +48,11 @@
 <script>
   new Vue({
     /* edtmc^2w */
-    el: '#app2',
+    el: '#app',
     data: {
       /* 인스턴스 안에서 사용되는 변수 등록, 공유 변수 */
-      message: '실습 완성 축하!!!!!'
-
+      message: '실습 완성 축하!!!!!'
     },
-
   });
 
 </script>

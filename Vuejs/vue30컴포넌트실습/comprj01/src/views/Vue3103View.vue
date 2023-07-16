@@ -10,16 +10,18 @@
 
 <script>
 import Vue3103Comp from '../components/vue3103/Vue3103Comp.vue';
+
 export default {
   /* pdtmc^2w */
   props: [],
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
     return {
-      localmsg1: '부모에서 자식으로 넘겨진 메세지1',
-      localmsg2: '부모에서 자식으로 넘겨진 메세지2',
+      localmsg1: '부모에서 자식으로 넘겨진 메시지 1',
+      localmsg2: '부모에서 자식으로 넘겨진 메시지 2',
     };
   },
+  //template: ``,
   methods: {},
   components: {
     /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */

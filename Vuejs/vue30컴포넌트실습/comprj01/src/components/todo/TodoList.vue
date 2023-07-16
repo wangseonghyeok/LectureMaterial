@@ -47,6 +47,7 @@ li.checked {
 </style>
 
 <template>
+  <!-- "checked(todoItem.done)"  <==> "todoItem.done ? 'checked': null "  -->
   <section>
     <ul>
       <li
@@ -61,7 +62,7 @@ li.checked {
           type="button"
           class="removeBtn"
           v-bind:data-id="item.id"
-          v-on:click="removeTodo(item.id)"
+          v-on:click.stop="removeTodo(item.id)"
         >
           <i aria-hidden="true" class="far fa-trash-alt"></i>
         </span>
@@ -83,18 +84,21 @@ export default {
   },
   //template: ``,
   methods: {
+    /* 이벤트 핸들러 등록 + 일반 함수 */
     doneToggle(e, id) {
-      console.log(e.target);
+      console.log(e.target, id);
       debugger;
       this.$emit('doneToggle', e, id);
     },
     removeTodo(id) {
+      // 이벤트 취소
+      // window.event.stopPropagation();
+      // window.event.preventDefault();
+
       console.log(id);
       debugger;
       this.$emit('removeTodo', id);
     },
-
-    /* 이벤트 핸들러 등록 + 일반 함수 */
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져오는 헬퍼 메서드입니다.
       namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.

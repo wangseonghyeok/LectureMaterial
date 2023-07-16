@@ -1,5 +1,5 @@
 // Vuex store 모듈 만들기
-//gimport axios from 'axios';
+// import axios from 'axios';
 
 const store = {
   namespaced: true /* store 의 모듈 여부 설정 */,
@@ -17,7 +17,12 @@ const store = {
       const { commit } = mutations;
       commit('get', payload);
     },
+    // set(mutations /* 고정 */, payload) {
+    //   //const { commit } = mutations;
+    //   mutations.commit('set', payload);
+    // },
     setCounter({ commit } /* 고정 */, payload) {
+      debugger;
       commit('setCounter', payload);
     },
   },
@@ -37,13 +42,14 @@ const store = {
       state /* 고정 */,
       param /* mutations.commit 호출시 넘겨지는 값 */,
     ) {
+      debugger;
       state.counter = state.counter + param;
     },
   },
   state: {
     /* vue인스턴스나 컴포넌트의 data 프로퍼티에 해당 */
     인자: 'STORE STATE',
-    welcome: 'HELLO world vuex',
+    welcome: 'Hello world vuex',
     counter: 10,
   },
   getters: {

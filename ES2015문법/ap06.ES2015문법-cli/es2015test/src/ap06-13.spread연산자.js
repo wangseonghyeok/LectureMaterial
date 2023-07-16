@@ -22,27 +22,31 @@
 
 const cities = ['서울', '부산', '제주'];
 console.log(cities[0], cities[1], cities[2]); // '서울', '부산', '제주'
-console.log(...cities);
-
-const newcities = [...cities];
-console.log(...newcities); // '서울', '부산', '제주'
+console.log(...cities); // '서울', '부산', '제주'
 
 const east = ['U', 'K', 'T'];
 const west = ['N', 'C', 'G'];
 
-// east 와 west 를 결합하여 countries1 배열을 만드시오
-const countries1 = east.concat(west); // ['U','K','T','N', 'C', 'G']
-console.log(east); // ['U','K','T']
-console.log(countries1); // ['U','K','T','N', 'C', 'G']
+// east 와 west 를 결합하여  countries 배열을 만드시오
+const countries = east.concat(west); // "U", "K", "T", "N", "C", "G"
+console.log(countries); // ['U', 'K', 'T', 'N', 'C', 'G']
 
-const countries2 = [...east, ...west]; // ['U','K','T','N', 'C', 'G']
-console.log(countries2); // ['U','K','T','N', 'C', 'G']
+// east 와 west 를 결합하여  countries1 배열을 만드시오.
+// spread 연산자 사용하여
+// spread 연산자 는 새로운 배열이나 객체를 만들 때 주로 사용된다
+const countries1 = [...east, ...west]; // ['U', 'K', 'T', 'N', 'C', 'G']
+console.log(countries1); // ['U', 'K', 'T', 'N', 'C', 'G']
+console.log(east); // ['U', 'K', 'T']
+console.log(west); // ['N', 'C', 'G']
 
-const lakes = ['경포호', '화진포', '송지호', '청조호'];
-const [first, ...rest] = lakes; //"경포호"
-
+let lakes = ['경포호', '화진포', '송지호', '청초호'];
+let [first, ...rest] = lakes; // ...rest : rest 연산자
 console.log(first); // "경포호"
-console.log(rest); // [ '화진포', '송지호', '청조호']
+console.log(rest); // ["화진포", "송지호", "청초호"]
+
+let [city1, ...cityrest] = [...east, ...west];
+// ...cityrest: rest 연산자  , [...east, ...west] : spread 연산자
+console.log(cityrest); // ["K", "T", "N", "C", "G"]
 
 const car1 = {
   type: 't1',
@@ -65,21 +69,17 @@ func({ ...car1, ...car2 });
 
 const moring = {
   breacfast: '미역국',
-  lunch: '삼치구이',
+  lunuch: '삼치구이',
 };
-
 const dinner = '스테이크';
-const meals = { ...moring, dinner };
-console.log(meals);
+const meals = { ...moring, dinner /*  dinner: dinner */ };
+console.log(meals); // meals 에 출력되는 값은 무엇인가?
 
-
- // props 에 출력되는 값은 무엇인가
-function childComponest(...props) {
-  console.log(props);
+// props 에 출력되는 값은 무엇인가?
+function childComponent(...props) {
+  // callee
+  console.log(props); // props 에 출력되는 값은 무엇인가?
+  debugger;
 }
-// ...props = ...message
-const message = 'passed form Parent Component';
-childComponest(...message);
-
-
-debugger;
+const message = 'passed from Parent Component';
+childComponent(...message); // caller

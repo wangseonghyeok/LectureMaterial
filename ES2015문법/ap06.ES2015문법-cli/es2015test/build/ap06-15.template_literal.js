@@ -7,7 +7,6 @@
   1. 다중 문자열 만들 때
   2. 변수 치환
 */
-
 var string1 = '안녕하세요';
-var string2 = '반갑습니다.';
-var str = "\n  \u3147\n  \u3147\n  ".concat(string1, ",").concat(string2, "\n  \u3147\n  \u3147\n");
+var string2 = '반갑습니다';
+var str = "\n  a\n\n  b\n  134\n\n  ".concat(string1, " ,  ").concat(string2, "\n");
