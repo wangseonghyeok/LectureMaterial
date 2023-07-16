@@ -82,37 +82,29 @@
   // ReactDOM.render( 인자1, 인자2 )
   ReactDOM.render(<HelloWorldContainer />, document.getElementById('app'));
 
+  // 단축키 rfchtml
   // const {...props} = props;
-  function HelloWorldContainer() {
+  function HelloWorldContainer({ ...props }) {
     // useState 를 사용한 컴포넌트의 상태값 설정
     const [변수명, set변수명] = useState([1, 2, 3, 4]); // 상태값이 기본타입인 경우
 
-    // const helloworlds = [1, 2, 3, 4].map((value, index, array) => {
-    //   return (<HelloWorld index={value}></HelloWorld>)
-    // });
-    const helloworlds = 변수명 && 변수명.length > 0 && 변수명.map((value, index, array) => {
-      return (<HelloWorld index={value}></HelloWorld>)
-    });
-    console.log(helloworlds);
-    debugger;
+    const helloworlds = 변수명 &&
+      변수명.length > 0 &&
+      변수명.map((value, index, array) => {
+        return (<HelloWorld index={value}></HelloWorld>);
+      });
+
     return (
-      // <Fragment>
-      //   <HelloWorld index={1}></HelloWorld>
-      //   <HelloWorld index={2}></HelloWorld>
-      //   <HelloWorld index={3}></HelloWorld>
-      //   <HelloWorld index={4}></HelloWorld>
-      // </Fragment>
       <Fragment>
-        {helloworlds}
-      </Fragment>
-
-
+        { helloworlds }
+      </Fragment  >
     );
   }
-  // const {...props} = props;
+
+  // const {index} = props;
   function HelloWorld({ index }) {
     // useState 를 사용한 컴포넌트의 상태값 설정
-    const [count, setCount] = useState(0); // 상태값이 기본타입인 경우
+    const [변수명, set변수명] = useState('기본값'); // 상태값이 기본타입인 경우
 
     // ref 만들기.
     // const refInput = useRef();
@@ -144,7 +136,6 @@
     const handler = (e) => {
       // 이벤트 핸들러는 화살표 함수로 만든다
       console.log(e.target);
-      debugger
     };
 
     // JSX로 화면 만들기. 조건부 렌더링: https://ko.reactjs.org/docs/conditional-rendering.html
@@ -154,6 +145,4 @@
       </div>
     );
   }
-
-
 </script>

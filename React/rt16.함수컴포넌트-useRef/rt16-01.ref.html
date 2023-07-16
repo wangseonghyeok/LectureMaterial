@@ -85,7 +85,6 @@
   </body>
 </html>
 
-
 <script src="https://unpkg.com/@babel/standalone/babel.js"
   crossorigin="anonymous">
     /* 자바스크립트로 컴파일러. ES6 ==> ES5, JSX ==> ES5  */
@@ -98,9 +97,6 @@
   crossorigin="anonymous">
     /* import ReactDOM from 'react-dom' */
   </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.js"
-  crossorigin="anonymous">
-  </script>
 <script type="text/babel">
 
   const { useState, useEffect, useRef, useCallback, useMemo, useReducer, Fragment } = React;
@@ -110,18 +106,19 @@
   ReactDOM.render(<TextInputWithFocusButton />, document.getElementById('app'));
 
   // 단축키 rfchtml
-
+  // const {...props} = props;
   function TextInputWithFocusButton({ ...props }) {
-
-    // refIsMounted는 생명주기의 마운트와 업데이트를 구분하기 위한 ref
+    // ref 만들기.
     const refInputEl1 = useRef();
     const refInputEl2 = useRef();
 
+    // refIsMounted는 생명주기의 마운트와 업데이트를 구분하기 위한 ref
     const refIsMounted = useRef(false);
     useEffect(() => {
       if (refIsMounted.current) {
         // 업데이트 될 때마다 실행됨. 여러번. state 가 변경될 때마다
         // console.log('TextInputWithFocusButton >> componentDidUpdate');
+
       }
       else {
         // 마운트 완료 후에 실행됨. 한번만. focus 줄때
@@ -157,6 +154,4 @@
       </div>
     );
   }
-
-
 </script>

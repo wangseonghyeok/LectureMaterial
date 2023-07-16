@@ -65,6 +65,6 @@ module.exports = {
     "no-debugger": 1 /* 1 = warn */,
     "no-unused-vars": 1 /* 1 = warn */,
     "react/prop-types": 1 /* 1 = warn */,
-    "react/no-unused-prop-types": 1 /* 1 = warn */,
+    "react/no-unused-prop-types": 2 /* 2 = error */,
   },
 };
